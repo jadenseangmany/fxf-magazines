@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #111111;
+  --paper: #ffffff;
+  --ink: #111111;
+  --quiet: #6b6b6b;
+  --fill: #d9d9d9;
+  --reply: #eee9ff;
+  --send: #6d5efc;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-quiet: var(--quiet);
+  --color-fill: var(--fill);
+  --color-reply: var(--reply);
+  --color-send: var(--send);
+  --font-mali: var(--font-mali-src);
+  --font-schoolbell: var(--font-schoolbell-src);
+  --font-dm: var(--font-dm-src);
+}
+
+* {
+  border-color: var(--ink);
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-dm-src), "DM Sans", sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+::selection {
+  background: #11111112;
+}
+
+.font-display {
+  font-family: var(--font-mali-src), Mali, cursive;
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.font-hand {
+  font-family: var(--font-schoolbell-src), Schoolbell, cursive;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.hand-border {
+  border: 1.75px solid var(--ink);
+  border-radius: 18px 28px 16px 24px / 22px 16px 26px 18px;
+}
+
+.chat-frame {
+  border: 1.75px solid var(--ink);
+  border-radius: 42px 48px 38px 46px / 46px 40px 50px 36px;
+  background: #f6f6f7;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.book-stage {
+  perspective: 2800px;
+}
+
+.book {
+  transform-style: preserve-3d;
+}
+
+.book-leaf {
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 900ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.book-leaf.is-flipped {
+  transform: rotateY(-180deg);
+}
+
+.book-leaf .face {
+  backface-visibility: hidden;
+}
+
+.book-leaf .face-back {
+  transform: rotateY(180deg);
+}
+
+@keyframes book-settle {
+  from {
+    transform: rotateY(-18deg) translateX(8px);
+  }
+  to {
+    transform: rotateY(-6deg) translateX(0);
+  }
+}
+
+.book-closed {
+  animation: book-settle 700ms ease both;
+}
