@@ -1,5 +1,6 @@
-import { Burst, Doodle } from "@/components/Doodle";
+import { Doodle } from "@/components/Doodle";
 import { CommentThread } from "@/components/CommentThread";
+import { IssueEditor } from "@/components/IssueEditor";
 import { IssueReader } from "@/components/IssueReader";
 import { SiteShell } from "@/components/SiteShell";
 import { getComments } from "@/lib/comments";
@@ -40,7 +41,12 @@ export default async function IssuePage({ params }: IssuePageProps) {
           height={115}
           className="absolute top-24 -right-2 hidden w-[90px] lg:block"
         />
-        <Burst className="absolute top-8 right-[30%] hidden h-9 w-9 lg:block" />
+        <Doodle
+          src="/doodles/sparkle-2.png"
+          width={40}
+          height={66}
+          className="absolute top-8 right-[30%] hidden h-9 w-9 lg:block"
+        />
         <h1 className="font-hand mb-10 text-center">
           check out our{" "}
           <span className="underline underline-offset-4">{monthName}</span> issue
@@ -72,6 +78,7 @@ export default async function IssuePage({ params }: IssuePageProps) {
                 <p className="mt-1">• {magazine.question}</p>
               </div>
             ) : null}
+            <IssueEditor magazine={magazine} />
           </div>
 
           <div className="flex justify-center lg:justify-start">

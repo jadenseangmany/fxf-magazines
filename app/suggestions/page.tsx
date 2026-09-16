@@ -1,6 +1,7 @@
 "use client";
 
 import { SiteShell } from "@/components/SiteShell";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function SuggestionsPage() {
@@ -32,7 +33,11 @@ export default function SuggestionsPage() {
         <h1 className="font-hand mb-6">got ideas?</h1>
         <p className="mb-8">
           we always want more ideas lol. drop a note for the next issue, a meetup,
-          a cafe snack, whatever.
+          a cafe snack, whatever. or{" "}
+          <Link href="/upload" className="underline underline-offset-4">
+            add a magazine pdf
+          </Link>
+          .
         </p>
         {done ? (
           <p className="font-hand">got it — thank you!</p>

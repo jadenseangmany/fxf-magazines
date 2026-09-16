@@ -1,38 +1,10 @@
 {
   "august-2026": [
     {
-      "id": "c1",
-      "name": "madi",
-      "message": "okay be honest... i have been rewatching the same comfort show every night and i am not sorry",
-      "createdAt": "2026-08-12T18:02:00.000Z",
-      "parentId": null
-    },
-    {
-      "id": "c2",
-      "name": "sally",
-      "message": "tell us the show!!! also the products of the month page is so cute i want all of it",
-      "createdAt": "2026-08-12T18:11:00.000Z",
-      "parentId": "c1"
-    },
-    {
-      "id": "c3",
-      "name": "vicky",
-      "message": "i started a movie i cannot finish because i keep pausing to snack. does that still count",
-      "createdAt": "2026-08-12T19:40:00.000Z",
-      "parentId": null
-    },
-    {
-      "id": "c4",
-      "name": "madi",
-      "message": "it counts. snack pauses are part of the format",
-      "createdAt": "2026-08-12T19:48:00.000Z",
-      "parentId": "c3"
-    },
-    {
-      "id": "c5",
-      "name": "sally",
-      "message": "reminder to drop your monthly goal even if it is tiny. mine is: sit in the sun once this week",
-      "createdAt": "2026-08-13T15:20:00.000Z",
+      "id": "9f7cb13b-fa31-42e3-aa60-f1fbf60ff9f4",
+      "name": "jaden",
+      "message": "first",
+      "createdAt": "2026-09-16T03:19:10.223Z",
       "parentId": null
     }
   ],

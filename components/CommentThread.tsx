@@ -72,6 +72,7 @@ export function CommentThread({
   const [message, setMessage] = useState("");
   const [replyTo, setReplyTo] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
+  const [error, setError] = useState("");
 
   const threads = useMemo(() => {
     const roots = comments.filter((comment) => !comment.parentId);
@@ -85,6 +86,7 @@ export function CommentThread({
     event.preventDefault();
     if (!name.trim() || !message.trim()) return;
     setPending(true);
+    setError("");
     try {
       const response = await fetch("/api/comments", {
         method: "POST",
@@ -96,11 +98,16 @@ export function CommentThread({
           parentId: replyTo,
         }),
       });
-      if (!response.ok) throw new Error("failed");
-      const comment = (await response.json()) as Comment;
-      setComments((current) => [...current, comment]);
+      const payload = (await response.json()) as Comment & { error?: string };
+      if (!response.ok || !payload.id) {
+        setError(payload.error ?? "could not save that note");
+        return;
+      }
+      setComments((current) => [...current, payload]);
       setMessage("");
       setReplyTo(null);
+    } catch {
+      setError("could not save that note");
     } finally {
       setPending(false);
     }
@@ -172,6 +179,9 @@ export function CommentThread({
               Send
             </button>
           </div>
+          {error ? (
+            <p className="mt-2 text-[12px] text-quiet">{error}</p>
+          ) : null}
         </div>
       </form>
     </section>

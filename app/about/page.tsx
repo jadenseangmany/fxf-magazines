@@ -1,4 +1,4 @@
-import { Burst, Doodle } from "@/components/Doodle";
+import { Doodle } from "@/components/Doodle";
 import { SiteShell } from "@/components/SiteShell";
 import type { Metadata } from "next";
 
@@ -56,10 +56,20 @@ export default function AboutPage() {
           {team.map((person, index) => (
             <section key={person.name} className="relative">
               {index === 0 ? (
-                <Burst className="absolute -top-5 -left-6 h-8 w-8" />
+                <Doodle
+                  src="/doodles/sparkle-2.png"
+                  width={40}
+                  height={66}
+                  className="absolute -top-5 -left-6 h-8 w-8"
+                />
               ) : null}
               {index === 2 ? (
-                <Burst className="absolute top-[38%] -right-6 hidden h-8 w-8 md:block" />
+                <Doodle
+                  src="/doodles/sparkle-1.png"
+                  width={31}
+                  height={49}
+                  className="absolute top-[38%] -right-6 hidden h-8 w-8 md:block"
+                />
               ) : null}
               <div className="aspect-[4/3.4] w-full bg-fill" />
               <h2 className="font-hand mt-4">{person.name}</h2>

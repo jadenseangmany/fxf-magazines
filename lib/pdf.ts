@@ -30,3 +30,24 @@ export async function renderPdfPages(
 
   return images;
 }
+
+export async function renderPdfFile(
+  file: File,
+  options?: { scale?: number; maxPages?: number },
+): Promise<string[]> {
+  const url = URL.createObjectURL(file);
+  try {
+    return await renderPdfPages(url, options);
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+}
+
+export async function dataUrlToFile(
+  dataUrl: string,
+  filename: string,
+): Promise<File> {
+  const response = await fetch(dataUrl);
+  const blob = await response.blob();
+  return new File([blob], filename, { type: "image/jpeg" });
+}

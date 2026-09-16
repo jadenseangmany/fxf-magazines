@@ -1,4 +1,4 @@
-import { Burst, Doodle, Sparkle } from "@/components/Doodle";
+import { Doodle } from "@/components/Doodle";
 import { HeartMark, StarMark, TargetMark } from "@/components/Marks";
 import { PdfThumb } from "@/components/PdfThumb";
 import { SiteShell } from "@/components/SiteShell";
@@ -15,14 +15,20 @@ export default async function HomePage() {
   return (
     <SiteShell>
       <main className="mt-8 sm:mt-10">
-        <div className="relative mx-auto w-full max-w-[920px]">
+        <div className="relative mx-auto w-full max-w-[1080px] pt-4">
           <Doodle
             src="/doodles/home/stars.png"
             width={121}
             height={115}
-            className="absolute top-[18%] left-0 hidden w-[88px] md:block"
+            className="absolute top-[30%] left-0 hidden w-[88px] sm:block"
           />
-          <div className="absolute bottom-[8%] left-2 hidden items-end gap-1 md:flex lg:left-8">
+          <Doodle
+            src="/doodles/home/doggie.png"
+            width={149}
+            height={106}
+            className="absolute top-[18%] left-[6%] hidden w-[108px] sm:block lg:left-[11%]"
+          />
+          <div className="absolute bottom-[4%] left-1 hidden items-end gap-0 sm:flex lg:left-[9%]">
             <Doodle
               src="/doodles/home/button.png"
               width={82}
@@ -40,18 +46,51 @@ export default async function HomePage() {
             src="/doodles/home/matcha.png"
             width={77}
             height={87}
-            className="absolute top-[6%] right-6 hidden w-14 md:block lg:right-16"
+            className="absolute top-[2%] right-[10%] hidden w-14 sm:block lg:right-[15%]"
           />
-          <Sparkle className="absolute top-[28%] right-[18%] hidden h-11 w-11 md:block" />
+          <Doodle
+            src="/doodles/home/hari clips.png"
+            width={133}
+            height={139}
+            className="absolute top-[34%] right-[7%] hidden w-[92px] sm:block lg:right-[11%]"
+          />
+          <Doodle
+            src="/doodles/home/sailboat.png"
+            width={120}
+            height={139}
+            className="absolute top-[48%] right-0 hidden w-[86px] sm:block lg:right-1"
+          />
 
           <div className="relative mx-auto max-w-[320px]">
-            <Burst className="absolute top-1 -left-9 h-8 w-8" />
+            <Doodle
+              src="/doodles/sparkle-2.png"
+              width={40}
+              height={66}
+              className="absolute top-1 -left-10 hidden w-8 sm:block"
+            />
             <h1 className="font-hand mb-4">this month’s magazine:</h1>
             <Link
               href={featured ? `/catalogs/${featured.slug}` : "/catalogs"}
               className="relative block"
             >
-              <Sparkle className="absolute -top-5 -right-10 hidden h-12 w-12 sm:block" />
+              <Doodle
+                src="/doodles/sparkle-2.png"
+                width={40}
+                height={66}
+                className="absolute -top-7 -right-11 hidden w-9 sm:block"
+              />
+              <Doodle
+                src="/doodles/home/star-1.png"
+                width={107}
+                height={127}
+                className="absolute -top-3 -right-7 z-10 hidden w-[70px] sm:block"
+              />
+              <Doodle
+                src="/doodles/home/star-2.png"
+                width={47}
+                height={73}
+                className="absolute top-10 -right-9 z-10 hidden w-8 sm:block"
+              />
               {featured?.cover ? (
                 <Image
                   src={featured.cover}
@@ -70,7 +109,12 @@ export default async function HomePage() {
               ) : (
                 <div className="aspect-[3/4.25] w-full bg-fill" />
               )}
-              <Burst className="absolute right-[-1.75rem] bottom-12 h-7 w-7" />
+              <Doodle
+                src="/doodles/sparkle-1.png"
+                width={31}
+                height={49}
+                className="absolute right-[-1.6rem] bottom-12 hidden w-7 sm:block"
+              />
             </Link>
           </div>
         </div>

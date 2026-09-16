@@ -16,15 +16,28 @@
     "month": "august",
     "year": 2026,
     "status": "published",
-    "blurb": "this month we added a \"products of the month\" section so i hope yall enjoy that... other than that we kept the updates and we are excited to look at all the goals and updates",
-    "question": "What is your guilty pleasure TV Show or movie right now?"
+    "cover": "/magazines/august-2026/cover.jpg",
+    "pages": [
+      "/magazines/august-2026/page-01.jpg",
+      "/magazines/august-2026/page-02.jpg",
+      "/magazines/august-2026/page-03.jpg",
+      "/magazines/august-2026/page-04.jpg",
+      "/magazines/august-2026/page-05.jpg",
+      "/magazines/august-2026/page-06.jpg",
+      "/magazines/august-2026/page-07.jpg",
+      "/magazines/august-2026/page-08.jpg",
+      "/magazines/august-2026/page-09.jpg",
+      "/magazines/august-2026/page-10.jpg",
+      "/magazines/august-2026/page-11.jpg",
+      "/magazines/august-2026/page-12.jpg",
+      "/magazines/august-2026/page-13.jpg"
+    ]
   },
   {
     "slug": "july-2026",
     "month": "july",
     "year": 2026,
     "status": "published",
-    "pdf": "/magazines/july-2026.pdf",
     "cover": "/magazines/july-2026/cover.jpg",
     "pages": [
       "/magazines/july-2026/page-1.jpg",
@@ -37,8 +50,8 @@
       "/magazines/july-2026/page-8.jpg",
       "/magazines/july-2026/page-9.jpg"
     ],
-    "blurb": "july was our first full month of notes, playlists, and tiny life updates.",
-    "question": "What is one thing you want to make time for in august?"
+    "blurb": "this month we added a “products of the month” section so i hope yall enjoy that... other than that we kept the updates and we are excited to look at all the goals and updates",
+    "question": "What is your guilty pleasure TV Show or movie right now?"
   },
   {
     "slug": "june-2026",

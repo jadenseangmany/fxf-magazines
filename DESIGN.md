@@ -59,12 +59,13 @@ Source files live in `/doodles` and are served from `/public/doodles`.
 
 | Page | Folder | Files |
 | --- | --- | --- |
-| Home | `doodles/home` | character (`Group 10`), button (`Group 9`) |
+| Home | `doodles/home` | character, button, doggie, sailboat, hari clips, star-1, star-2, stars, matcha |
+| Shared | `doodles` | sparkle-1, sparkle-2 |
 | About | `doodles/about` | team portraits, apple, hearts, bow, stars |
 | Catalog 1 | `doodles/catalog-1` | duck (`Group 14`), matcha |
 | Catalog 2 | `doodles/catalog-2` | rabbits, stars |
 
-Home also reuses the stars and matcha doodles because they appear on that frame. Tiny sparkle bursts around titles are drawn as SVG to match the frames; they are not PNG assets.
+Tiny sparkle bursts around titles use the sparkle PNGs.
 
 ## Magazine
 
@@ -74,8 +75,8 @@ Home also reuses the stars and matcha doodles because they appear on that frame.
 - Clicking the zine **centers it and enlarges it** so both pages of a spread can be read.
 - Opened, it is a real book: **left page and right page**, spine in the middle. Turning a page is a **page-flip**, not a slide.
 - The first time the enlarged zine is opened, the **cover turns** like opening a magazine, then you move through spreads.
-- A **comment section** belongs to each magazine upload. On desktop it sits beside the book, matching the Catalog 2 frame; on small screens it stacks under the book.
-- Editors upload a monthly PDF from `/admin`. Uploads write into `public/magazines` and `data/magazines.json`.
+- A **comment section** belongs to each magazine upload. On desktop it sits beside the book, matching the Catalog 2 frame; on small screens it stacks under the book. Comments persist in **Vercel Blob** (one file per note) when `BLOB_READ_WRITE_TOKEN` is set.
+- Anyone can upload a monthly PDF from `/upload`. From an issue page, **edit this issue** can change the note, the question of the month, or replace the PDF. Pages are converted to JPEGs in the browser, then stored in **Vercel Blob**. The catalog (`magazines.json`) and comments live in Blob too when `BLOB_READ_WRITE_TOKEN` is set. Without the token, local uploads still write to `public/magazines/` and `data/`. The original PDF is not kept.
 
 ## Layout notes from the frames
 
@@ -86,4 +87,4 @@ Home also reuses the stars and matcha doodles because they appear on that frame.
 
 ## Out of scope for later
 
-Accounts, moderation tools, and a hosted database are not part of this spec. Comments persist in `data/comments.json` on the server that runs the app.
+Accounts, moderation tools, and a hosted database are not part of this spec. Comments persist in Vercel Blob when the token is set, otherwise `data/comments.json` on the local machine.
