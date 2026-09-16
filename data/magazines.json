@@ -18,19 +18,19 @@
     "status": "published",
     "cover": "/magazines/august-2026/cover.jpg",
     "pages": [
-      "/magazines/august-2026/page-01.jpg",
-      "/magazines/august-2026/page-02.jpg",
-      "/magazines/august-2026/page-03.jpg",
-      "/magazines/august-2026/page-04.jpg",
-      "/magazines/august-2026/page-05.jpg",
-      "/magazines/august-2026/page-06.jpg",
-      "/magazines/august-2026/page-07.jpg",
-      "/magazines/august-2026/page-08.jpg",
-      "/magazines/august-2026/page-09.jpg",
-      "/magazines/august-2026/page-10.jpg",
-      "/magazines/august-2026/page-11.jpg",
-      "/magazines/august-2026/page-12.jpg",
-      "/magazines/august-2026/page-13.jpg"
+      "/magazines/august-2026/1.jpg",
+      "/magazines/august-2026/2.jpg",
+      "/magazines/august-2026/3.jpg",
+      "/magazines/august-2026/4.jpg",
+      "/magazines/august-2026/5.jpg",
+      "/magazines/august-2026/6.jpg",
+      "/magazines/august-2026/7.jpg",
+      "/magazines/august-2026/8.jpg",
+      "/magazines/august-2026/9.jpg",
+      "/magazines/august-2026/10.jpg",
+      "/magazines/august-2026/11.jpg",
+      "/magazines/august-2026/12.jpg",
+      "/magazines/august-2026/13.jpg"
     ]
   },
   {
@@ -52,13 +52,5 @@
     ],
     "blurb": "this month we added a “products of the month” section so i hope yall enjoy that... other than that we kept the updates and we are excited to look at all the goals and updates",
     "question": "What is your guilty pleasure TV Show or movie right now?"
-  },
-  {
-    "slug": "june-2026",
-    "month": "june",
-    "year": 2026,
-    "status": "published",
-    "blurb": "hello from the very beginning — a first pass at keeping us close.",
-    "question": "If we opened a home cafe tomorrow, what would you put on the menu?"
   }
 ]

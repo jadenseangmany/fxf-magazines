@@ -1,6 +1,7 @@
 import { Doodle } from "@/components/Doodle";
 import { SiteShell } from "@/components/SiteShell";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "about",
@@ -17,12 +18,13 @@ const team = [
     portraitSize: { width: 124, height: 141 },
     accent: "/doodles/about/apple.png",
     accentSize: { width: 128, height: 102 },
+    photo: "/madi.png",
   },
   {
     name: "sally",
-    mbti: "",
-    hobbies: "",
-    description: "",
+    mbti: "ENFJ",
+    hobbies: "reading, swimming, crocheting, movies",
+    description: "hellooo from a fellow ucsd grad <3 i am fascinated by all conversations related to culture, marketing, and design. my dream career is in creative & analytical marketing!",
     portrait: "/doodles/about/sally.png",
     portraitSize: { width: 143, height: 143 },
     accent: "/doodles/about/hearts.png",
@@ -30,9 +32,9 @@ const team = [
   },
   {
     name: "vicky",
-    mbti: "",
-    hobbies: "",
-    description: "",
+    mbti: "coming soon",
+    hobbies: "drawing, painting, hiking, & crafts",
+    description: "hi! i’m a recent ucsd graduate. i love anything creative, media, and traveling. i want to be a product designer or digital marketer :3",
     portrait: "/doodles/about/vicky.png",
     portraitSize: { width: 134, height: 140 },
     accent: "/doodles/about/bow.png",
@@ -52,9 +54,12 @@ export default function AboutPage() {
         />
         <h1 className="font-hand mb-8 text-center">meet our lil team</h1>
 
-        <div className="grid gap-10 md:grid-cols-3 md:gap-8">
+        <div className="grid gap-10 md:grid-cols-3 md:grid-rows-[repeat(6,auto)] md:gap-x-8 md:gap-y-0">
           {team.map((person, index) => (
-            <section key={person.name} className="relative">
+            <section
+              key={person.name}
+              className="relative flex flex-col md:row-span-6 md:grid md:grid-rows-subgrid"
+            >
               {index === 0 ? (
                 <Doodle
                   src="/doodles/sparkle-2.png"
@@ -71,33 +76,49 @@ export default function AboutPage() {
                   className="absolute top-[38%] -right-6 hidden h-8 w-8 md:block"
                 />
               ) : null}
-              <div className="aspect-[4/3.4] w-full bg-fill" />
-              <h2 className="font-hand mt-4">{person.name}</h2>
-              <div className="mt-2 space-y-1 text-[15px] leading-snug">
-                <p>
-                  <span className="font-medium">mbti:</span> {person.mbti}
-                </p>
-                <p>
-                  <span className="font-medium">hobbies:</span>
-                  {person.hobbies ? ` ${person.hobbies}` : null}
-                </p>
-                <p>
-                  <span className="font-medium">description:</span>
-                  {person.description ? ` ${person.description}` : null}
-                </p>
+              <div className="relative aspect-[4/3.4] w-full overflow-hidden bg-fill">
+                {"photo" in person && person.photo ? (
+                  <Image
+                    src={person.photo}
+                    alt={person.name}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                ) : null}
               </div>
-              <div className="mt-6 flex items-end gap-2">
+              <h2 className="font-hand mt-4">{person.name}</h2>
+              <p className="mt-2 text-[15px] leading-snug">
+                <span className="font-medium">mbti:</span> {person.mbti}
+              </p>
+              <div className="mt-1 text-[15px] leading-snug">
+                <p className="font-medium">hobbies:</p>
+                {person.hobbies ? (
+                  <ul className="mt-0.5 list-disc pl-5">
+                    <li>{person.hobbies}</li>
+                  </ul>
+                ) : null}
+              </div>
+              <div className="mt-1 text-[15px] leading-snug">
+                <p className="font-medium">description:</p>
+                {person.description ? (
+                  <ul className="mt-0.5 list-disc pl-5">
+                    <li>{person.description}</li>
+                  </ul>
+                ) : null}
+              </div>
+              <div className="mt-auto flex h-[130px] items-end gap-3 pt-6">
                 <Doodle
                   src={person.portrait}
                   width={person.portraitSize.width}
                   height={person.portraitSize.height}
-                  className="w-[110px]"
+                  className="h-[118px] w-auto"
                 />
                 <Doodle
                   src={person.accent}
                   width={person.accentSize.width}
                   height={person.accentSize.height}
-                  className="w-[90px]"
+                  className="h-[86px] w-auto"
                 />
               </div>
             </section>

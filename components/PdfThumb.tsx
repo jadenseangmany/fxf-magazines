@@ -34,6 +34,11 @@ export function PdfThumb({
 
   return (
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={image} alt={alt} className={`object-cover ${className ?? ""}`} />
+    <img
+      src={image}
+      alt={alt}
+      className={className}
+      style={{ width: "100%", height: "100%", objectFit: "fill" }}
+    />
   );
 }

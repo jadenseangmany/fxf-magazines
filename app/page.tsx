@@ -3,7 +3,6 @@ import { HeartMark, StarMark, TargetMark } from "@/components/Marks";
 import { PdfThumb } from "@/components/PdfThumb";
 import { SiteShell } from "@/components/SiteShell";
 import { getMagazines, latestPublished } from "@/lib/magazines";
-import Image from "next/image";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
@@ -92,20 +91,24 @@ export default async function HomePage() {
                 className="absolute top-10 -right-9 z-10 hidden w-8 sm:block"
               />
               {featured?.cover ? (
-                <Image
-                  src={featured.cover}
-                  alt="this month’s magazine"
-                  width={320}
-                  height={428}
-                  className="aspect-[3/4.25] w-full object-cover"
-                  priority
-                />
+                <div className="relative aspect-[3/4.25] w-full overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={featured.cover}
+                    alt="this month’s magazine"
+                    width={320}
+                    height={428}
+                    style={{ width: "100%", height: "100%", objectFit: "fill" }}
+                  />
+                </div>
               ) : featured?.pdf ? (
-                <PdfThumb
-                  src={featured.pdf}
-                  alt="this month’s magazine"
-                  className="aspect-[3/4.25] w-full"
-                />
+                <div className="relative aspect-[3/4.25] w-full overflow-hidden">
+                  <PdfThumb
+                    src={featured.pdf}
+                    alt="this month’s magazine"
+                    className="h-full w-full"
+                  />
+                </div>
               ) : (
                 <div className="aspect-[3/4.25] w-full bg-fill" />
               )}

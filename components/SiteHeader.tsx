@@ -18,7 +18,7 @@ export function SiteHeader() {
           <Link
             key={link.href}
             href={link.href}
-            className="font-hand text-ink/90 transition-opacity hover:opacity-60"
+            className="font-hand text-ink/90 underline decoration-ink/40 underline-offset-4 transition-opacity hover:opacity-60"
           >
             {link.label}
           </Link>

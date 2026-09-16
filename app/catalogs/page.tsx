@@ -12,7 +12,11 @@ export const metadata: Metadata = {
 };
 
 export default async function CatalogsPage() {
-  const magazines = await getMagazines();
+  const magazines = (await getMagazines()).filter(
+    (magazine) =>
+      magazine.status === "coming-soon" ||
+      Boolean(magazine.cover || magazine.pdf || magazine.pages?.length),
+  );
 
   return (
     <SiteShell>
@@ -34,17 +38,9 @@ export default async function CatalogsPage() {
             add a magazine
           </Link>
         </p>
-        <div className="hide-scrollbar flex snap-x snap-mandatory gap-10 overflow-x-auto px-[max(1rem,calc(50%-560px))] pt-12 pb-10">
+        <div className="catalog-rail hide-scrollbar">
           {magazines.map((magazine) => (
-            <div key={magazine.slug} className="relative">
-              {magazine.month === "august" ? (
-                <Doodle
-                  src="/doodles/sparkle-2.png"
-                  width={40}
-                  height={66}
-                  className="absolute -bottom-2 -left-6 h-8 w-8"
-                />
-              ) : null}
+            <div key={magazine.slug} className="relative shrink-0">
               <CatalogCard magazine={magazine} />
             </div>
           ))}
